@@ -8,7 +8,7 @@ hbs.registerPartials(__dirname+'/views/partials');
 hbs.registerHelper('currentDate', () => {
     return new Date().getFullYear();
 });
-
+const port = process.env.PORT || 3000;
 const app = express();
 app.set('view engine', 'hbs');
 
@@ -169,4 +169,6 @@ for (let i = 0; i < entities.length; i++) {
 //     res.render('video', {title:'article title'});
 // });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Server running on ${port}`);
+});
